@@ -1,0 +1,31 @@
+<project name="JChartEx">
+<path id="classpath">
+	  <fileset dir="src/oyes/lib">
+		<include name="**/*.jar"/>
+	  </fileset>
+	</path>
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes">
+		  <compilerarg line="-Xlint" />
+		</javac>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/JChartEx.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="oyes.JChartEx"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/JChartEx.jar" fork="true"/>
+    </target>
+
+</project>
